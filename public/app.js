@@ -15,4 +15,11 @@ registerForm.addEventListener('submit', (e) => {
       const user = userCredential.user;
       const uid = user.uid;
     })
+
+    // Store additional user data in a Firebase database
+    const userData = {
+        email: user.email,
+        displayName: user.displayName,
+        photoUrl: user.photoUrl
+    };
 })

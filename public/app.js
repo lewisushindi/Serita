@@ -2,24 +2,36 @@
 const registerForm = document.querySelector('#register-form');
 const googleRegisterBtn = document.querySelector('#google-register-btn');
 
-// register with email and password
+// Register with email and password
 registerForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    const email = registerForm['email'].value;
-    const password = registerForm['password'].value;
+  e.preventDefault();
+  
+  const email = registerForm['email'].value;
+  const password = registerForm['password'].value;
 
-    // register the user with Firebase Authentication
-    firebase.auth().createUserWithEmailAndPassword(email, password)
+  // Register the user with Firebase Authentication
+  firebase.auth().createUserWithEmailAndPassword(email, password)
     .then((userCredential) => {
       const user = userCredential.user;
       const uid = user.uid;
-    })
 
-    // Store additional user data in a Firebase database
-    const userData = {
+      // Store additional user data in a Firestore database
+      const userData = {
         email: user.email,
         displayName: user.displayName,
-        photoUrl: user.photoUrl
-    };
-})
+        photoURL: user.photoURL
+      };
+
+      firebase.firestore().collection('users').doc(uid).set(userData)
+        .then(() => {
+          console.log('User data saved');
+        })
+        .catch((error) => {
+          console.error('Error writing user data', error);
+        });
+    })
+    .catch((error) => {
+      console.error('Error registering user', error);
+    });
+});
+

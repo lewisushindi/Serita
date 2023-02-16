@@ -8,4 +8,11 @@ registerForm.addEventListener('submit', (e) => {
     
     const email = registerForm['email'].value;
     const password = registerForm['password'].value;
+
+    // register the user with Firebase Authentication
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then((userCredential) => {
+      const user = userCredential.user;
+      const uid = user.uid;
+    })
 })

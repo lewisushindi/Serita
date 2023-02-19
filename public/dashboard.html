@@ -8,32 +8,22 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="/dist/output.css" rel="stylesheet">
-    <script src="/firebase.js"></script>
-    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js"></script>
-    <!-- Add Firebase products that you want to use -->
+    <script src="/firebase.js"></script>    
+    <script src="https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js"></script>    
     <script src="https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js"></script>
-	<script>
-        // Import the functions you need from the SDKs you need
+	<script>        
         import { initializeApp } from "firebase/app";
-        import { getAnalytics } from "firebase/analytics";
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
-
-		// Your web app's Firebase configuration
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        import { getAnalytics } from "firebase/analytics";        
 		const firebaseConfig = {
 			apiKey: "AIzaSyATbNjJXMWC-F-LPD8H6IukvN2KVmD3gIs",
-        authDomain: "seritahealth.firebaseapp.com",
-        projectId: "seritahealth",
-        storageBucket: "seritahealth.appspot.com",
-        messagingSenderId: "597467249811",
-        appId: "1:597467249811:web:e6ddf3d183ce0683352166",
-        measurementId: "G-G2GKC4MZ14"
-		};
-
-		// Initialize Firebase
+            authDomain: "seritahealth.firebaseapp.com",
+            projectId: "seritahealth",
+            storageBucket: "seritahealth.appspot.com",
+            messagingSenderId: "597467249811",
+            appId: "1:597467249811:web:e6ddf3d183ce0683352166",
+            measurementId: "G-G2GKC4MZ14"
+		};		
         const app = initializeApp(firebaseConfig);
         const analytics = getAnalytics(app);
 	</script>
@@ -56,7 +46,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
                 </svg> 
                 <a href="#!">                                 
-                Journal
+                    Journal
                 </a>
           </li>
           <li class="relative flex items-center text-sm mb-2 py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out" data-mdb-ripple="true" data-mdb-ripple-color="dark">

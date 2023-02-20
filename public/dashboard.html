@@ -8,25 +8,10 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="/dist/output.css" rel="stylesheet">
-    <script src="/firebase.js"></script>    
+    <script src="firebase.js"></script>    
     <script src="https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js"></script>    
     <script src="https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js"></script>
-	<script>        
-        import { initializeApp } from "firebase/app";
-        import { getAnalytics } from "firebase/analytics";        
-		const firebaseConfig = {
-			apiKey: "AIzaSyATbNjJXMWC-F-LPD8H6IukvN2KVmD3gIs",
-            authDomain: "seritahealth.firebaseapp.com",
-            projectId: "seritahealth",
-            storageBucket: "seritahealth.appspot.com",
-            messagingSenderId: "597467249811",
-            appId: "1:597467249811:web:e6ddf3d183ce0683352166",
-            measurementId: "G-G2GKC4MZ14"
-		};		
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-	</script>
+    <script src="https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js"></script>	
 </head>
 <body>
     <button class="hamburger ml-2" onclick="openNav()">&#9776;</button>       

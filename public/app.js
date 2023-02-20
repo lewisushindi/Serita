@@ -31,7 +31,7 @@ const firebaseConfig = {
             var password = $("input[name='password']").val();
             auth.signInWithEmailAndPassword(email, password)
             .then((userCredential) => {					
-                window.location.href = "dashboard.html";
+                window.location.href = "dashboard.html";                
             })
             .catch((error) => {					
                 Swal.fire({

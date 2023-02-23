@@ -1,6 +1,7 @@
 /* Open the sidenav */
 function openNav() {
     document.getElementById("mySidenav").style.width = "200px";
+    document.getElementById("mySidenav").style.display = "flex";
     document.getElementById("Serita-db").style.marginLeft="200px";
   }
     

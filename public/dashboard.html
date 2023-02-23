@@ -8,16 +8,29 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="/dist/output.css" rel="stylesheet">
-    <script src="firebase.js"></script>    
-    <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-auth.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js"></script>	
+    <script src="/firebase.js"></script>    
+    <script src="https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js"></script>    
+    <script src="https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js"></script>
+	<script>        
+        import { initializeApp } from "firebase/app";
+        import { getAnalytics } from "firebase/analytics";        
+		const firebaseConfig = {
+			apiKey: "AIzaSyATbNjJXMWC-F-LPD8H6IukvN2KVmD3gIs",
+            authDomain: "seritahealth.firebaseapp.com",
+            projectId: "seritahealth",
+            storageBucket: "seritahealth.appspot.com",
+            messagingSenderId: "597467249811",
+            appId: "1:597467249811:web:e6ddf3d183ce0683352166",
+            measurementId: "G-G2GKC4MZ14"
+		};		
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+	</script>
 </head>
 <body>
     <button class="hamburger ml-2" onclick="openNav()">&#9776;</button>       
-    <div class="w-52 h-full shadow-md bg-white px-1 absolute sidenav" id="mySidenav">
+    <div class="w-52 h-full shadow-md hidden bg-white px-1 absolute sidenav" id="mySidenav">
         <a href="#" class="closebtn" onclick="closeNav()">&times;</a>
         <ul class="relative mt-8">
           <li class="relative flex items-center text-sm mb-2 py-4 px-6 h-12 overflow-hidden  text-ellipsis whitespace-nowrap rounded hover:text-gray-700 hover:bg-gray-100 transition duration-300 ease-in-out bg-gray-100 text-gray-900" data-mdb-ripple="true" data-mdb-ripple-color="dark">
@@ -71,16 +84,18 @@
           </li>
         </ul>
         <ul class="relative mt-28">
-            <li class="relative flex items-center justify-between text-sm py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out" data-mdb-ripple="true" data-mdb-ripple-color="dark">
+            <li class="relative flex items-center text-sm py-4 px-6 h-12 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-900 hover:bg-gray-100 transition duration-300 ease-in-out" data-mdb-ripple="true" data-mdb-ripple-color="dark">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M5.636 5.636a9 9 0 1012.728 0M12 3v9" />
                 </svg>                    
-                <button id="logoutBtn" class="mr-16">Logout</button>
+                <a href="#!">
+                    Logout
+                </a>
             </li>
         </ul>
     </div>
     
-    <section class="p-10 ml-52" id="Serita-db">       
+    <section class="p-10" id="Serita-db">
         <h1 class="text-3xl font-bold mb-6 text-center">Serita Dashboard</h1>
         <div class="bg-white p-6 rounded-lg shadow-md mb-6">
         <h2 class="text-xl font-bold mb-4">Recent Moods and Emotions</h2>
@@ -102,7 +117,6 @@
         </div>
     </section>
     
-    <script src="logout.js"></script>
     <script src="app.js"></script>
 </body>
 </html>

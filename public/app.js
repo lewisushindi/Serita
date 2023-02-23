@@ -89,9 +89,7 @@ firebase.auth().onAuthStateChanged((user) => {
         });
       });
     } else {
-      // The user is not signed in
-      // Redirect the user to the login page or display a login form
-      // ...
+        window.location.href = "dashboard.html";   
     }
   });
   

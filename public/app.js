@@ -8,6 +8,7 @@ function openNav() {
   /* Close the sidenav */
   function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("mySidenav").style.display = "none";
     document.getElementById("Serita-db").style.marginLeft="4px";
   }
 

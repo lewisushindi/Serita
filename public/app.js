@@ -45,3 +45,55 @@ const firebaseConfig = {
         });
     });
    
+    // journal page
+    
+    const firebase = require("firebase");
+    // Required for side-effects
+    require("firebase/firestore");
+    // Authenticate the user
+firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      // The user is signed in
+      const userId = user.uid;
+      const db = firebase.firestore();
+  
+      // Listen for form submit events
+      const form = document.getElementById('new-journal-entry-form');
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+  
+        // Get form data
+        const recentMood = document.getElementById('recent-mood').value;
+        const currentGoals = document.getElementById('current-goals').value;
+        const upcomingAppointments = document.getElementById('upcoming-appointments').value;
+  
+        // Save the journal entry data to Firestore
+        const journalRef = db.collection('users').doc(userId).collection('journal');
+        journalRef.add({
+          recentMood: recentMood,
+          currentGoals: currentGoals,
+          upcomingAppointments: upcomingAppointments,
+          timestamp: firebase.firestore.FieldValue.serverTimestamp()
+        }).then(() => {
+          // Clear the form
+          document.getElementById('recent-mood').value = '';
+          document.getElementById('current-goals').value = '';
+          document.getElementById('upcoming-appointments').value = '';
+  
+          // Show a success message
+          document.getElementById('success-message').classList.remove('hidden');
+        }).catch((error) => {
+          // Show an error message
+          document.getElementById('error-message').classList.remove('hidden');
+          document.getElementById('error-message').textContent = error.message;
+        });
+      });
+    } else {
+      // The user is not signed in
+      // Redirect the user to the login page or display a login form
+      // ...
+    }
+  });
+  
+  
+       

@@ -14,7 +14,29 @@
 	<script src="initialize.js"></script>
 </head>
 <body>
-    
+    <section>
+        <h1 class="text-2xl font-bold mb-4">Serita Journal</h1>
+
+        <!-- Form to create a new journal entry -->
+        <form id="new-journal-entry-form" class="mb-4">
+        <div class="mb-4">
+            <label for="recent-mood" class="block font-bold mb-2">Recent Mood:</label>
+            <input type="text" id="recent-mood" name="recent-mood" class="border rounded w-full py-2 px-3">
+        </div>
+
+        <div class="mb-4">
+            <label for="current-goals" class="block font-bold mb-2">Current Goals:</label>
+            <textarea id="current-goals" name="current-goals" class="border rounded w-full py-2 px-3"></textarea>
+        </div>
+
+        <div class="mb-4">
+            <label for="upcoming-appointments" class="block font-bold mb-2">Upcoming Appointments:</label>
+            <input type="text" id="upcoming-appointments" name="upcoming-appointments" class="border rounded w-full py-2 px-3">
+        </div>
+
+        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
+        </form>
+    </section>
     <script src="app.js"></script>
 </body>
 </html>

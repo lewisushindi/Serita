@@ -91,6 +91,49 @@ firebase.auth().onAuthStateChanged((user) => {
     } else {
         window.location.href = "dashboard.html";   
     }
+    
+    // displaying past entries
+    if (user) {
+        // The user is signed in
+        const userId = user.uid;
+        const journalRef = firebase.database().ref(`users/${userId}/journal`);
+    
+        // Listen for value changes in the journal data
+        journalRef.on('value', (snapshot) => {
+          const journalEntries = [];
+    
+          snapshot.forEach((childSnapshot) => {
+            const childData = childSnapshot.val();
+            childData.key = childSnapshot.key;
+            journalEntries.push(childData);
+          });
+    
+          // Display the journal entries in a table
+          const table = document.getElementById('journal-entries-table');
+          table.innerHTML = `
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Recent Mood</th>
+                <th>Current Goals</th>
+                <th>Upcoming Appointments</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${journalEntries.map(entry => `
+                <tr>
+                  <td>${new Date(entry.timestamp).toLocaleDateString()}</td>
+                  <td>${entry.recentMood}</td>
+                  <td>${entry.currentGoals}</td>
+                  <td>${entry.upcomingAppointments}</td>
+                </tr>
+              `).join('')}
+            </tbody>
+          `;
+        });
+      } else {
+        window.location.href = "login.html";   
+      }
   });
   
   
